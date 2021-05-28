@@ -1,29 +1,7 @@
 /* 
-func computerPlay 
-    randomly return rock, paper, scissors.
-func playRound(playerSelection, computerSelection)
-    playerSelection = prompt("rock, paper, or scissors: ")
-    show rock > scissors > paper > rock
-    winning message shows 
-    let winning = `congrats! You win! ${playerSelection} beats ${computerSelection}`;
-    let losing = `Aww, you lost! ${computerSelection} beat ${playerSelection}
-
-    let rock = 6
-    let scissors = 4
-    let paper
-    if (computerSelection = rock) {
-        paper = 8
-        else:
-        paper = 0
-    }
-
-    if (playerSelection > computerSelection){
-        return winning;
-        else:
-        return losing;
-    }    
-    add if statements
-    return "win or lose statement" */
+    store playerSelection as a variable 
+    if statements to match up with possible options
+*/
 
 function computerPlay(){
     const optionsArray = ["rock", "paper", "scissors"];
@@ -34,29 +12,50 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     computerSelection = computerPlay();
-    playerSelection = prompt("rock, paper, or scissors: ");
+    playerSelection = prompt("rock, paper, or scissors");
     const winning = `congrats! You win! ${playerSelection} beats ${computerSelection}`;
     const losing = `Aww, you lost! ${computerSelection} beat ${playerSelection}`;
-    const rock = 6;
-    const scissors = 4;
-    let paper;
+    const tie = `It's a tie! ${playerSelection} = ${computerSelection}`;
 
-    if (computerSelection = rock) {
-        paper = 8;
-    }
-        else {
-            paper = 0;
-
+    console.log(playerSelection);
+    console.log(computerSelection);
+    
+    if (playerSelection === "rock"){
+        playerSelection = 3;
+    } else if (playerSelection === "scissors"){
+        playerSelection = 2;
+    } else if (playerSelection === "paper"){
+        if (computerSelection === "rock"){
+            playerSelection = 4;
+        } else {
+            playerSelection = 0;
         }
+    }
+
+    if (computerSelection === "rock"){
+        computerSelection = 3;
+    } else if (computerSelection === "scissors"){
+        computerSelection = 2;
+    } else if (computerSelection === "paper"){
+        if (playerSelection === "rock"){
+            computerSelection = 4;
+        } else {
+            computerSelection = 0;
+        }
+    }
+
+    let results;
 
     if (playerSelection > computerSelection){
-        return winning;
+        results = winning;
+    } else if (playerSelection == computerSelection) {
+        results = tie;
     }
         else {
-            return losing;
-
+            results = losing;
         }
        
+    console.log(results);
 }
 
 playRound();
