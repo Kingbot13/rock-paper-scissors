@@ -16,7 +16,6 @@ function playRound(playerSelection, computerSelection){
         const winning = `congrats! You win this round! ${playerSelection} beats ${computerSelection}`; // win, lose, and tie messages
         const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection}`;
         const tie = `It's a tie! ${playerSelection} = ${computerSelection}`;
-        let scoreReport = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
         
         console.log("Player: ", playerSelection.toUpperCase());
         console.log("Computer: ", computerSelection.toUpperCase());
@@ -32,7 +31,7 @@ function playRound(playerSelection, computerSelection){
                 playerSelection = 1;
             }
         }
-
+        
         if (computerSelection === "rock"){
             computerSelection = 3;
         } else if (computerSelection === "scissors"){
@@ -44,9 +43,9 @@ function playRound(playerSelection, computerSelection){
                 computerSelection = 1;
             }
         }
-
+        
         let results;
-
+        
         if (playerSelection > computerSelection){ // update scores
             results = winning;
             ++playerScore;
@@ -59,7 +58,8 @@ function playRound(playerSelection, computerSelection){
         } else {
             results = tie;
         }
-
+        
+        let scoreReport = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
         
         console.log(results);
         console.log(scoreReport);
